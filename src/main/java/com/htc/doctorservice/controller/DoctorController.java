@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.htc.doctorservice.DTO.DoctorDTO;
 import com.htc.doctorservice.entity.Doctor;
 import com.htc.doctorservice.persistence.IDoctor;
 
@@ -32,14 +33,16 @@ Doctor getDoctor(@PathVariable Long doctorId)
 Doctor getDoctorByAppoinmentId(@PathVariable Long appointmentId)
 {
 	Doctor doc=null;
-	doc=repo.findById(appointmentId).get();
+	doc=repo.findByAppointmentId(appointmentId);
 	return doc;
 	
 }
 @PostMapping("/doctors")
-Doctor createEmployee(@RequestBody Doctor doc)
+Doctor createEmployee(@RequestBody DoctorDTO doc)
+
 {
-	return repo.save(doc);
+	Doctor doctor=new Doctor(doc.getAppointmentId(),doc.getDoctorName(),doc.getAppointmentDate() );
+	return repo.save(doctor);
 	
 }
 
