@@ -20,28 +20,25 @@ public class DoctorController {
 	
 	private IDoctor repo;
  
-@GetMapping("/doctors/{doctorId}")
+@GetMapping("/doctor/{doctorId}")
 Doctor getDoctor(@PathVariable Long doctorId)
 {
 	Doctor doc=null;
-	doc=repo.findById(doctorId).get();
+	doc=repo.findByDoctortId(doctorId);
 	return doc;
 	
+}
+@GetMapping("/doctors")
+Doctor  findAll() {
+
+  return (Doctor) repo.findAll();
 }
 
-@GetMapping("/doctors/{appointmentId}")
-Doctor getDoctorByAppoinmentId(@PathVariable Long appointmentId)
-{
-	Doctor doc=null;
-	doc=repo.findByAppointmentId(appointmentId);
-	return doc;
-	
-}
 @PostMapping("/doctors")
 Doctor createEmployee(@RequestBody DoctorDTO doc)
 
 {
-	Doctor doctor=new Doctor(doc.getAppointmentId(),doc.getDoctorName(),doc.getAppointmentDate() );
+	Doctor doctor=new Doctor(doc.getDoctorName(),doc.getSpecialization(),doc.getContactNo() );
 	return repo.save(doctor);
 	
 }

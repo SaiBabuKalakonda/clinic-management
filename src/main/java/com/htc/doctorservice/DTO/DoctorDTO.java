@@ -4,25 +4,19 @@ import java.util.Date;
 
 public class DoctorDTO {
 	
-	private Long appointmentId;
+	
 	
 	private String doctorName;
 	 
-	private Date appointmentDate;
+	private String Specialization;
+	
+	private Long contactNo;
 
-	public DoctorDTO(Long appointmentId, String doctorName, Date appointmentDate) {
+	public DoctorDTO(String doctorName, String specialization, Long contactNo) {
 		super();
-		this.appointmentId = appointmentId;
 		this.doctorName = doctorName;
-		this.appointmentDate = appointmentDate;
-	}
-
-	public Long getAppointmentId() {
-		return appointmentId;
-	}
-
-	public void setAppointmentId(Long appointmentId) {
-		this.appointmentId = appointmentId;
+		Specialization = specialization;
+		this.contactNo = contactNo;
 	}
 
 	public String getDoctorName() {
@@ -33,18 +27,26 @@ public class DoctorDTO {
 		this.doctorName = doctorName;
 	}
 
-	public Date getAppointmentDate() {
-		return appointmentDate;
+	public String getSpecialization() {
+		return Specialization;
 	}
 
-	public void setAppointmentDate(Date appointmentDate) {
-		this.appointmentDate = appointmentDate;
+	public void setSpecialization(String specialization) {
+		Specialization = specialization;
+	}
+
+	public Long getContactNo() {
+		return contactNo;
+	}
+
+	public void setContactNo(Long contactNo) {
+		this.contactNo = contactNo;
 	}
 
 	@Override
 	public String toString() {
-		return "DoctorDAO [appointmentId=" + appointmentId + ", doctorName=" + doctorName + ", appointmentDate="
-				+ appointmentDate + "]";
+		return "DoctorDTO [doctorName=" + doctorName + ", Specialization=" + Specialization + ", contactNo=" + contactNo
+				+ "]";
 	}
-	
+
 }

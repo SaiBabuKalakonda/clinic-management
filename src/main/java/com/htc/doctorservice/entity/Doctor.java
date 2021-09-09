@@ -17,34 +17,33 @@ public class Doctor implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -6365454512188588857L;
-	@Column
-	private Long appointmentId;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long doctorId;
 	@Column
 	private String doctorName;
 	@Column 
-	private Date appointmentDate;
+	private String specialization;
+	@Column 
+	private Long contactNo;
 	public Doctor() {
 		super();
 	
 	}
-	public Doctor(Long appointmentId, String doctorName, Date appointmentDate) {
+	
+	public Doctor(String doctorName, String specialization, Long contactNo) {
 		super();
-		this.appointmentId = appointmentId;
 		this.doctorName = doctorName;
-		this.appointmentDate = appointmentDate;
+		this.specialization = specialization;
+		this.contactNo = contactNo;
 	}
-	public Long getAppointmentId() {
-		return appointmentId;
+
+	public Long getContactNo() {
+		return contactNo;
 	}
-	public void setAppointmentId(Long appointmentId) {
-		this.appointmentId = appointmentId;
-	}
-	public Long getDoctorId() {
-		return doctorId;
-	}
+
+	
 	public void setDoctorId(Long doctorId) {
 		this.doctorId = doctorId;
 	}
@@ -54,17 +53,23 @@ public class Doctor implements Serializable {
 	public void setDoctorName(String doctorName) {
 		this.doctorName = doctorName;
 	}
-	public Date getAppointmentDate() {
-		return appointmentDate;
+	public String getSpecialization() {
+		return specialization;
 	}
-	public void setAppointmentDate(Date appointmentDate) {
-		this.appointmentDate = appointmentDate;
+	public void setSpecialization(String specialization) {
+		this.specialization = specialization;
+	}
+	public void setContactNo(Long contactNo) {
+		this.contactNo = contactNo;
+	}
+
+	public Long getDoctorId() {
+		return doctorId;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((appointmentId == null) ? 0 : appointmentId.hashCode());
 		result = prime * result + ((doctorId == null) ? 0 : doctorId.hashCode());
 		return result;
 	}
@@ -77,11 +82,6 @@ public class Doctor implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Doctor other = (Doctor) obj;
-		if (appointmentId == null) {
-			if (other.appointmentId != null)
-				return false;
-		} else if (!appointmentId.equals(other.appointmentId))
-			return false;
 		if (doctorId == null) {
 			if (other.doctorId != null)
 				return false;
@@ -89,12 +89,11 @@ public class Doctor implements Serializable {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Doctor [appointmentId=" + appointmentId + ", doctorId=" + doctorId + ", doctorName=" + doctorName
-				+ ", appointmentDate=" + appointmentDate + "]";
+		return "Doctor [doctorId=" + doctorId + ", doctorName=" + doctorName + ", specialization=" + specialization
+				+ ", contactNo=" + contactNo + "]";
 	}
 	
 }
-	
-	
