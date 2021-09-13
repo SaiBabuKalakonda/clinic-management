@@ -27,23 +27,25 @@ public class Doctor implements Serializable {
 	private String specialization;
 	@Column 
 	private Long contactNo;
+	@Column 
+	private Long appointmentId;
 	public Doctor() {
 		super();
 	
 	}
 	
-	public Doctor(String doctorName, String specialization, Long contactNo) {
+	public Doctor(String doctorName, String specialization, Long contactNo,Long appointmentId) {
 		super();
 		this.doctorName = doctorName;
 		this.specialization = specialization;
 		this.contactNo = contactNo;
+		this.appointmentId=appointmentId;
 	}
 
-	public Long getContactNo() {
-		return contactNo;
-	}
 
-	
+	public Long getDoctorId() {
+		return doctorId;
+	}
 	public void setDoctorId(Long doctorId) {
 		this.doctorId = doctorId;
 	}
@@ -62,10 +64,19 @@ public class Doctor implements Serializable {
 	public void setContactNo(Long contactNo) {
 		this.contactNo = contactNo;
 	}
-
-	public Long getDoctorId() {
-		return doctorId;
+	public Long getContactNo() {
+		return contactNo;
 	}
+
+
+	public Long getAppointmentId() {
+		return appointmentId;
+	}
+
+	public void setAppointmentId(Long appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,7 +104,8 @@ public class Doctor implements Serializable {
 	@Override
 	public String toString() {
 		return "Doctor [doctorId=" + doctorId + ", doctorName=" + doctorName + ", specialization=" + specialization
-				+ ", contactNo=" + contactNo + "]";
+				+ ", contactNo=" + contactNo + ", appointmentId=" + appointmentId + "]";
 	}
+
 	
 }

@@ -8,15 +8,18 @@ public class DoctorDTO {
 	
 	private String doctorName;
 	 
-	private String Specialization;
+	private String specialization;
 	
 	private Long contactNo;
+	
+	private Long appointmentId;
 
-	public DoctorDTO(String doctorName, String specialization, Long contactNo) {
+	public DoctorDTO(String doctorName, String specialization, Long contactNo,Long appointmentId) {
 		super();
 		this.doctorName = doctorName;
-		Specialization = specialization;
+		this.specialization = specialization;
 		this.contactNo = contactNo;
+		this.appointmentId=appointmentId;
 	}
 
 	public String getDoctorName() {
@@ -28,11 +31,11 @@ public class DoctorDTO {
 	}
 
 	public String getSpecialization() {
-		return Specialization;
+		return specialization;
 	}
 
 	public void setSpecialization(String specialization) {
-		Specialization = specialization;
+		this.specialization = specialization;
 	}
 
 	public Long getContactNo() {
@@ -43,10 +46,20 @@ public class DoctorDTO {
 		this.contactNo = contactNo;
 	}
 
+	public Long getAppointmentId() {
+		return appointmentId;
+	}
+
+	public void setAppointmentId(Long appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+
 	@Override
 	public String toString() {
-		return "DoctorDTO [doctorName=" + doctorName + ", Specialization=" + Specialization + ", contactNo=" + contactNo
-				+ "]";
+		return "DoctorDTO [doctorName=" + doctorName + ", specialization=" + specialization + ", contactNo=" + contactNo
+				+ ", appointmentId=" + appointmentId + "]";
 	}
+
+	
 
 }
