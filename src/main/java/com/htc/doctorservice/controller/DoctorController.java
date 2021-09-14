@@ -43,15 +43,17 @@ Doctor getDoctorByAppointmentId(@PathVariable Long appointmnetId)
 	
 }
 
-@GetMapping("/doctors")
-public List<Doctor> getAllDoctordetails() {
- 
-  List<Doctor> list = new ArrayList<>();
-  Iterable<Doctor> customers = repo.findAll();
-
-  customers.forEach(list::add);
-  return list;
-}
+//@GetMapping("/doctors")
+//public List<Doctor> getAllDoctors() {
+// 
+//  List<Doctor> list = new ArrayList<>();
+//  Iterable<Doctor> customers = repo.findAll();
+//
+//  customers.forEach(list::add);
+//  return list;
+//	
+//	
+//}
 
 @PostMapping("/doctors")
 Doctor createEmployee(@RequestBody DoctorDTO doc)

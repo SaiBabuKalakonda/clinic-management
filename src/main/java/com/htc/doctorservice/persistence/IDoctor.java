@@ -14,7 +14,6 @@ public interface IDoctor extends JpaRepository<Doctor,Long>{
 	public Doctor findByDoctorId(Long doctorId);
 	public Doctor findByAppointmentId(Long appointmentId);
 
-	public List<Doctor> getAllDoctors();
-	
+//	public List<Doctor> getAllDoctors();
 	
 }
